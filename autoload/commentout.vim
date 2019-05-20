@@ -15,6 +15,16 @@ function! commentout#comment(start, end) abort
     endif
 endfunction
 
+function! commentout#uncomment(start, end) abort
+    let filetype = s:filetype()
+    if strlen(filetype) == ''
+        echomsg 'このファイルの拡張子はvimではありません: ' . expand('%')
+        return 0
+    else
+        execute(a:start.','.a:end.'s/^\"//')
+    endif
+endfunction
+
 function! s:filetype() abort
     if expand('%:e') ==# 'vim'
         return expand('%')
