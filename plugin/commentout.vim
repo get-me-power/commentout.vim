@@ -7,6 +7,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 command! -nargs=+ Comment call commentout#comment(<f-args>)
+command! -nargs=+ UnComment call commentout#uncomment(<f-args>)
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
