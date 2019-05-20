@@ -32,3 +32,6 @@ function! s:filetype() abort
         return ''
     endif
 endfunction
+
+let &cpo = s:save_cpo
+unlet s:save_cpo
