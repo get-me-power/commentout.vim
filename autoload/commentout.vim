@@ -6,31 +6,14 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! commentout#comment(start, end) abort
-    let filetype = s:filetype()
-    if strlen(filetype) == ''
-        echomsg 'このファイルの拡張子はvimではありません: ' . expand('%')
-        return 0
-    else
-        execute(a:start.','.a:end.'s/^/"/')
-    endif
-endfunction
-
-function! commentout#uncomment(start, end) abort
-    let filetype = s:filetype()
-    if strlen(filetype) == ''
-        echomsg 'このファイルの拡張子はvimではありません: ' . expand('%')
-        return 0
-    else
-        execute(a:start.','.a:end.'s/^\"//')
-    endif
-endfunction
-
-function! s:filetype() abort
-    if expand('%:e') ==# 'vim'
-        return expand('%')
-    else
-        return ''
-    endif
+    let commentout = return#returncomment#new(&filetype)
+    echo commentout
+    let for_count = a:start
+    "execute(a:start.','.a:end.'s/^/'.commentout/')
+    for for_count in range(a:end)
+        let line = getline(for_count + 1)
+        call setline(for_count + 1, commentout.line)
+    endfor
 endfunction
 
 let &cpo = s:save_cpo
