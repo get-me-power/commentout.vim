@@ -8,11 +8,10 @@ set cpo&vim
 function! commentout#comment(start, end) abort
     let commentout = return#returncomment#new(&filetype)
     echo commentout
-    let for_count = a:start
     "execute(a:start.','.a:end.'s/^/'.commentout/')
-    for for_count in range(a:end)
-        let line = getline(for_count + 1)
-        call setline(for_count + 1, commentout.line)
+    for for_count in range(a:start, a:end)
+        let line = getline(for_count)
+        call setline(for_count, commentout.line)
     endfor
 endfunction
 
