@@ -1,4 +1,4 @@
-function! return#filetype#vim#new()
+function! commentout#filetype#vim#new()
     let commentout = '"'
     return commentout
 endfunction

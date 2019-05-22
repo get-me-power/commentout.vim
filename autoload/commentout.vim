@@ -6,7 +6,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! commentout#comment(start, end) abort
-    let commentout = return#returncomment#new(&filetype)
+    let commentout = commentout#returncomment#new(&filetype)
     echo commentout
     "execute(a:start.','.a:end.'s/^/'.commentout/')
     for for_count in range(a:start, a:end)
