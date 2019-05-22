@@ -28,3 +28,16 @@ If you want to uncomment out, do this command.
 ```
 :UnComment [first line number] [last line number]
 ```
+
+## Available language
+
+- C
+- C++
+- Python
+- Ruby
+- Vim Script
+
+## Coution! ⚠
+
+**UnComment command is unfinished.**
+
