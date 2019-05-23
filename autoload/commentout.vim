@@ -22,7 +22,6 @@ endfunction
 
 function! commentout#uncomment(start, end) abort
     let commentout = commentout#returncomment#new(&filetype)
-    echo commentout
     let save_cursor = getcurpos()
     if commentout != '//'
         execute(a:start.','.a:end.'s/'.commentout.' '.'//')
