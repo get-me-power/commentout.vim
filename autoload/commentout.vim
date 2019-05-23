@@ -14,10 +14,7 @@ function! commentout#comment(start, end) abort
         " 文字列の連結
         call setline(for_count, commentout.' '.line)
     endfor
-    " インデント
-    execute("normal " . "gg=G")
-    " カーソル位置を元に戻す
-    call setpos('.', save_cursor)
+    call s:Indent(save_cursor)
 endfunction
 
 function! commentout#uncomment(start, end) abort
@@ -42,7 +39,9 @@ function! commentout#uncomment(start, end) abort
 endfunction
 
 function! s:Indent(save_cursor)
+    " インデント
     execute("normal " . "gg=G")
+    " カーソル位置を元に戻す
     call setpos('.', a:save_cursor)
 endfunction
 
