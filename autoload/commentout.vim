@@ -1,6 +1,6 @@
- if !exists('g:loaded_commentout')
-     finish
- endif
+if !exists('g:loaded_commentout')
+    finish
+endif
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -24,12 +24,26 @@ function! commentout#uncomment(start, end) abort
     let commentout = commentout#returncomment#new(&filetype)
     let save_cursor = getcurpos()
     if commentout != '//'
-        execute(a:start.','.a:end.'s/'.commentout.' '.'//')
+        try
+            execute(a:start.','.a:end.'s/'.commentout.' '.'//')
+            call s:Indent(save_cursor)
+        catch /^Vim\%((\a\+)\)\=:E486:/
+            echo 'pattern is not found'
+        endtry
     else
-        execute(a:start.','.a:end.'s/\/\//')
+        try
+            execute(a:start.','.a:end.'s/\/\//')
+            call s:Indent(save_cursor)
+        " E486を補足
+        catch /^Vim\%((\a\+)\)\=:E486:/
+            echo 'pattern is not found'
+        endtry
     endif
+endfunction
+
+function! s:Indent(save_cursor)
     execute("normal " . "gg=G")
-    call setpos('.', save_cursor)
+    call setpos('.', a:save_cursor)
 endfunction
 
 let &cpo = s:save_cpo
