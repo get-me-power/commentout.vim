@@ -33,8 +33,9 @@ If you want to uncomment out, do this command.
 
 - C
 - C++
+- C#
 - Python
 - Ruby
 - Vim Script
 - Java
-
+- Go
