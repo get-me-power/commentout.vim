@@ -38,4 +38,5 @@ If you want to uncomment out, do this command.
 - Ruby
 - Vim Script
 - Java
+- JavaScript
 - Go
