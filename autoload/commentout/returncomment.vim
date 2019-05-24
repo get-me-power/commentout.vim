@@ -7,7 +7,7 @@ function! commentout#returncomment#new(filetype)
     else
         let funcname = printf(
                     \ 'commentout#filetype#%s#new',
-                    \  'a:filename,
+                    \  a:filetype,
                     \)
     endif
     let Fn = function(funcname)
