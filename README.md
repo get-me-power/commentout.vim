@@ -1,8 +1,9 @@
 # commentout.vim
 
-This plugin easily can commentout for vim script.
+This plugin easily can commentout for some programming language
 
 ## Installtion
+
 If you use [dein.vim](https://github.com/Shougo/dein.vim)
 
 ```
