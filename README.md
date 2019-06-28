@@ -30,6 +30,10 @@ If you want to uncomment out, do this command.
 :UnComment [first line number] [last line number]
 ```
 
+# Screen Shot
+
+![example](./screenshot.gif)
+
 ## Available language
 
 - C
