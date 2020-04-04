@@ -1,5 +1,5 @@
 if exists('g:loaded_commentout')
-    finish
+  finish
 endif
 let g:loaded_commentout = 1
 
